@@ -1,10 +1,9 @@
-package com.fastlink.zekrapp.ui.utils.bottomAppBar
+package com.fastlink.zekir_app.ui.utils.bottomAppBar
 
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.ContentCopy
 import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.FavoriteBorder
 import androidx.compose.material.icons.filled.Home
@@ -13,23 +12,34 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavBackStackEntry
 import androidx.navigation.NavController
 import com.fastlink.zekir_app.appData.model.ZekirCategoryModel
 import com.fastlink.zekir_app.navigation.Screen
+import org.jetbrains.compose.resources.painterResource
+import zekirapp.composeapp.generated.resources.Res
+import zekirapp.composeapp.generated.resources.ic_copy
+
+sealed interface BottomBarItemIcon {
+    data class PainterResourceSource(val painter: Painter) : BottomBarItemIcon
+    data class ImageVectorSource(val imageVector: ImageVector) : BottomBarItemIcon
+}
 
 data class BottomBarItem(
-    val icon: ImageVector,
+    val icon: BottomBarItemIcon,
     val label: String?,
     val selected: Boolean,
     val onClicked: () -> Unit
 )
+
 @Composable
 fun BottomBar(bottomBarItems: List<BottomBarItem>) {
     BottomAppBar(
         containerColor = MaterialTheme.colorScheme.primary,
+        contentColor = MaterialTheme.colorScheme.onPrimary,
         modifier = Modifier.clip(RoundedCornerShape(topEnd = 20.dp, topStart = 20.dp)),
         contentPadding = PaddingValues(horizontal = 90.dp)
     ) {
@@ -47,6 +57,7 @@ fun BottomBar(bottomBarItems: List<BottomBarItem>) {
     }
 }
 
+@Composable
 fun getListOfBottomBarItemsInZekirScreen(
     zekirCategory: ZekirCategoryModel,
     onCopyIconClicked: () -> Unit,
@@ -54,13 +65,13 @@ fun getListOfBottomBarItemsInZekirScreen(
 ): List<BottomBarItem> {
     val bottomBarItems = listOf(
         BottomBarItem(
-            icon = Icons.Default.ContentCopy,
+            icon = BottomBarItemIcon.PainterResourceSource(painterResource(resource = Res.drawable.ic_copy)),
             label = null,
             selected = true,
             onClicked = onCopyIconClicked
         ),
         BottomBarItem(
-            icon = if (zekirCategory.isFavorite) Icons.Default.Favorite else Icons.Default.FavoriteBorder,
+            icon = BottomBarItemIcon.ImageVectorSource(if (zekirCategory.isFavorite) Icons.Default.Favorite else Icons.Default.FavoriteBorder),
             label = null,
             selected = true,
             onClicked = onFavoriteIconClicked
@@ -79,7 +90,7 @@ fun getListOfBottomBarItems(
 
     val bottomBarItems = listOf(
         BottomBarItem(
-            icon = Icons.Default.Home,
+            icon = BottomBarItemIcon.ImageVectorSource(Icons.Default.Home),
             label = homeIconLabel,
             selected = navBackStackEntry.destination.route == Screen.Home.route,
             onClicked = {
@@ -88,7 +99,7 @@ fun getListOfBottomBarItems(
                 }
             }),
         BottomBarItem(
-            icon = Icons.Default.Favorite,
+            icon = BottomBarItemIcon.ImageVectorSource(Icons.Default.Favorite),
             label = favoriteIconLabel,
             selected = navBackStackEntry.destination.route == Screen.Favorite.route,
             onClicked = {
