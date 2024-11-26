@@ -1,21 +1,11 @@
-package com.fastlink.zekrapp.ui.homeScreen
+package com.fastlink.zekir_app.ui.homeScreen
 
-import android.content.Context
 import androidx.lifecycle.ViewModel
 import com.fastlink.zekir_app.di.ZekirCategorySingleton
 import com.fastlink.zekir_app.appData.model.ZekirCategoryModel
-import dagger.hilt.android.lifecycle.HiltViewModel
-import dagger.hilt.android.qualifiers.ApplicationContext
-import javax.inject.Inject
 
-@HiltViewModel
-class HomeScreenViewModel @Inject constructor(
-    @ApplicationContext private val context: Context
-) : ViewModel() {
-    init {
-        if(ZekirCategorySingleton.zekirCategoriesData.value.isEmpty())
-            ZekirCategorySingleton.getZekirCategoriesFromCSVFile(context)
-    }
+class HomeScreenViewModel : ViewModel() {
+
     fun getAllZekirCategories(): List<ZekirCategoryModel> =
         ZekirCategorySingleton.zekirCategoriesData.value
 

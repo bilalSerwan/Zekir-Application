@@ -1,4 +1,4 @@
-package com.fastlink.zekrapp.ui.homeScreen
+package com.fastlink.zekir_app.ui.homeScreen
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
@@ -12,32 +12,35 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
-import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import androidx.navigation.compose.currentBackStackEntryAsState
-import com.fastlink.zekrapp.R
-import com.fastlink.zekrapp.ui.utils.AppBar
-import com.fastlink.zekrapp.ui.utils.ZekirCategoryCard
-import com.fastlink.zekrapp.ui.utils.bottomAppBar.BottomBar
-import com.fastlink.zekrapp.ui.utils.bottomAppBar.getListOfBottomBarItems
+import com.fastlink.zekir_app.ui.utils.AppBar
+import com.fastlink.zekir_app.ui.utils.ZekirCategoryCard
+import com.fastlink.zekir_app.ui.utils.bottomAppBar.BottomBar
+import com.fastlink.zekir_app.ui.utils.bottomAppBar.getListOfBottomBarItems
+import org.jetbrains.compose.resources.stringResource
+import org.koin.compose.viewmodel.koinViewModel
+import zekirapp.composeapp.generated.resources.Favorite
+import zekirapp.composeapp.generated.resources.Home
+import zekirapp.composeapp.generated.resources.HomeAppBarTitle
+import zekirapp.composeapp.generated.resources.Res
 
 @Composable
 fun HomeScreen(
     navController: NavController,
-    homeScreenViewModel: HomeScreenViewModel = hiltViewModel(),
+    homeScreenViewModel: HomeScreenViewModel = koinViewModel(),
 ) {
     val navBackStackEntry by navController.currentBackStackEntryAsState()
 
     Scaffold(backgroundColor = MaterialTheme.colorScheme.background,
-        topBar = { AppBar(title = stringResource(id = R.string.HomeAppBarTitle)) },
+        topBar = { AppBar(title = stringResource(resource = Res.string.HomeAppBarTitle)) },
         bottomBar = {
             navBackStackEntry?.let { entry ->
                 BottomBar(
                     bottomBarItems = getListOfBottomBarItems(
-                        homeIconLabel = stringResource(id = R.string.Home),
-                        favoriteIconLabel = stringResource(id = R.string.Favorite),
+                        homeIconLabel = stringResource(resource = Res.string.Home),
+                        favoriteIconLabel = stringResource(resource = Res.string.Favorite),
                         navController = navController,
                         navBackStackEntry = entry
                     )
@@ -55,7 +58,8 @@ fun HomeScreen(
             ) {
                 items(
                     homeScreenViewModel.getAllZekirCategories(),
-                    key = {zekir-> zekir.id }) { zekirCategory ->
+                    key = { zekir -> zekir.id }
+                ) { zekirCategory ->
                     ZekirCategoryCard(
                         zekirCategory = zekirCategory,
                         navController = navController,

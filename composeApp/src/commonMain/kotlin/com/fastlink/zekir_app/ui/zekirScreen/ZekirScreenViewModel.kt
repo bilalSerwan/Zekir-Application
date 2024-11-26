@@ -1,4 +1,4 @@
-package com.fastlink.zekrapp.ui.zekirScreen
+package com.fastlink.zekir_app.ui.zekirScreen
 
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableIntStateOf
@@ -10,15 +10,10 @@ import com.fastlink.zekir_app.appData.model.ZekirCategoryModel
 import com.fastlink.zekir_app.appData.model.ZekirModel
 import com.fastlink.zekir_app.di.ZekirCategorySingleton
 import com.fastlink.zekir_app.di.ZekirSingleton
-import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
-import javax.inject.Inject
 
-@HiltViewModel
-class ZekirScreenViewModel @Inject constructor(
-    savedStateHandle: SavedStateHandle,
-) : ViewModel() {
+class ZekirScreenViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
     val zekirCounter = mutableIntStateOf(0)
     var zekirs: List<ZekirModel> = emptyList()
         private set

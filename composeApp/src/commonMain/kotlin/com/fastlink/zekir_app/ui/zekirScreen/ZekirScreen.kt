@@ -1,6 +1,5 @@
-package com.fastlink.zekrapp.ui.zekirScreen
+package com.fastlink.zekir_app.ui.zekirScreen
 
-import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
@@ -25,21 +24,20 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalClipboardManager
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.unit.dp
-import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
-import com.fastlink.zekrapp.ui.utils.AppBar
-import com.fastlink.zekrapp.ui.utils.bottomAppBar.BottomBar
-import com.fastlink.zekrapp.ui.utils.bottomAppBar.getListOfBottomBarItemsInZekirScreen
-import com.fastlink.zekrapp.ui.zekirScreen.utils.CustomFloatingActionButton
-import com.fastlink.zekrapp.ui.zekirScreen.utils.CustomSnackBar
-import com.fastlink.zekrapp.ui.zekirScreen.utils.ZekirCard
+import com.fastlink.zekir_app.ui.utils.AppBar
+import com.fastlink.zekir_app.ui.zekirScreen.utils.CustomFloatingActionButton
+import com.fastlink.zekir_app.ui.zekirScreen.utils.CustomSnackBar
+import com.fastlink.zekir_app.ui.zekirScreen.utils.ZekirCard
+import com.fastlink.zekir_app.ui.utils.bottomAppBar.BottomBar
+import com.fastlink.zekir_app.ui.utils.bottomAppBar.getListOfBottomBarItemsInZekirScreen
+import org.koin.compose.viewmodel.koinViewModel
 
 
-@OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun ZekirScreen(
     navController: NavController,
-    zekirScreenViewModel: ZekirScreenViewModel = hiltViewModel(),
+    zekirScreenViewModel: ZekirScreenViewModel = koinViewModel(),
 ) {
     val snackBarState = remember { SnackbarHostState() }
     val pagerState = rememberPagerState(
@@ -63,7 +61,7 @@ fun ZekirScreen(
                         imageVector = Icons.AutoMirrored.Filled.ArrowForward,
                         contentDescription = null,
                         modifier = Modifier
-                            .padding(end = 20.dp, top = 2.dp)
+                            .padding(start = 15.dp,end = 20.dp,top = 22.dp)
                             .clickable {
                                 navController.navigateUp()
                             },
@@ -92,7 +90,8 @@ fun ZekirScreen(
                         )
                     })
             )
-        }) { innerPadding ->
+        }
+    ) { innerPadding ->
         HorizontalPager(
             state = pagerState,
             modifier = Modifier

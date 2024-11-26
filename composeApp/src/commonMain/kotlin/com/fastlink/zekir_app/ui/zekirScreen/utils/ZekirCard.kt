@@ -1,7 +1,6 @@
-package com.fastlink.zekrapp.ui.zekirScreen.utils
+package com.fastlink.zekir_app.ui.zekirScreen.utils
 
 import androidx.compose.animation.core.tween
-import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
@@ -20,14 +19,14 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Brush
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import com.fastlink.zekrapp.R
-import com.fastlink.zekrapp.ui.zekirScreen.ZekirScreenViewModel
+import com.fastlink.zekir_app.ui.zekirScreen.ZekirScreenViewModel
 import kotlinx.coroutines.launch
+import org.jetbrains.compose.resources.stringResource
+import zekirapp.composeapp.generated.resources.Res
+import zekirapp.composeapp.generated.resources.readOnceInArabic
 
-@OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun ZekirCard(pagerState: PagerState, viewModel: ZekirScreenViewModel) {
     val coroutineScope = rememberCoroutineScope()
@@ -73,7 +72,7 @@ fun ZekirCard(pagerState: PagerState, viewModel: ZekirScreenViewModel) {
         )
         Text(
             text = "\n(${
-                viewModel.zekirs[pagerState.currentPage].textCounter ?: stringResource(id = R.string.readOnceInArabic)
+                viewModel.zekirs[pagerState.currentPage].textCounter ?: stringResource(resource = Res.string.readOnceInArabic)
             })",
             modifier = Modifier.fillMaxWidth(),
             textAlign = TextAlign.End,
