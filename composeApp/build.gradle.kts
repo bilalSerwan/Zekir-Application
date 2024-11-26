@@ -46,6 +46,9 @@ kotlin {
             //KOIN
             implementation("io.insert-koin:koin-androidx-compose:4.0.0")
             implementation("io.insert-koin:koin-compose-viewmodel:4.0.0")
+
+            //Navigation
+            implementation("org.jetbrains.androidx.navigation:navigation-compose:2.8.0-alpha10")
         }
     }
 }
