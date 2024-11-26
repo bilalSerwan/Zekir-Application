@@ -1,4 +1,4 @@
-package com.fastlink.zekrapp.appData.model
+package com.fastlink.zekir_app.appData.model
 
 data class ZekirCategoryModel(
     val id: Int=0,

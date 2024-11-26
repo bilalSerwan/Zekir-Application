@@ -1,6 +1,6 @@
-package com.fastlink.zekrapp.appData
+package com.fastlink.zekir_app.appData
 
-import com.fastlink.zekrapp.appData.model.ZekirModel
+import com.fastlink.zekir_app.appData.model.ZekirModel
 
 val zekirData: ArrayList<ZekirModel> = arrayListOf(
     ZekirModel(

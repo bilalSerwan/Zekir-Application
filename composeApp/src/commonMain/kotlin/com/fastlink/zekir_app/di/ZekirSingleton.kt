@@ -1,7 +1,7 @@
-package com.fastlink.zekrapp.di
+package com.fastlink.zekir_app.di
 
-import com.fastlink.zekrapp.appData.model.ZekirModel
-import com.fastlink.zekrapp.appData.zekirData
+import com.fastlink.zekir_app.appData.model.ZekirModel
+import com.fastlink.zekir_app.appData.zekirData
 
 object ZekirSingleton {
     private val _zekirs = mutableListOf<ZekirModel>()

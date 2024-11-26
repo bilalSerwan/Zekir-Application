@@ -23,8 +23,8 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
-import com.fastlink.zekrapp.appData.model.ZekirCategoryModel
-import com.fastlink.zekrapp.navigation.Screen
+import com.fastlink.zekir_app.appData.model.ZekirCategoryModel
+import com.fastlink.zekir_app.navigation.Screen
 
 @Composable
 fun ZekirCategoryCard(

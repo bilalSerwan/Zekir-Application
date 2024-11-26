@@ -6,10 +6,10 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.fastlink.zekrapp.appData.model.ZekirCategoryModel
-import com.fastlink.zekrapp.appData.model.ZekirModel
-import com.fastlink.zekrapp.di.ZekirCategorySingleton
-import com.fastlink.zekrapp.di.ZekirSingleton
+import com.fastlink.zekir_app.appData.model.ZekirCategoryModel
+import com.fastlink.zekir_app.appData.model.ZekirModel
+import com.fastlink.zekir_app.di.ZekirCategorySingleton
+import com.fastlink.zekir_app.di.ZekirSingleton
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch

@@ -1,4 +1,4 @@
-package com.fastlink.zekrapp.navigation
+package com.fastlink.zekir_app.navigation
 
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController

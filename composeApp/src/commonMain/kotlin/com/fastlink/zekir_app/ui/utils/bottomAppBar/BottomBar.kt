@@ -17,8 +17,8 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavBackStackEntry
 import androidx.navigation.NavController
-import com.fastlink.zekrapp.appData.model.ZekirCategoryModel
-import com.fastlink.zekrapp.navigation.Screen
+import com.fastlink.zekir_app.appData.model.ZekirCategoryModel
+import com.fastlink.zekir_app.navigation.Screen
 
 data class BottomBarItem(
     val icon: ImageVector,

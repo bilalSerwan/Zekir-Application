@@ -1,4 +1,4 @@
-package com.fastlink.zekrapp.appData.model
+package com.fastlink.zekir_app.appData.model
 
 import androidx.compose.runtime.Stable
 
