@@ -1,4 +1,4 @@
-package com.fastlink.zekrapp.ui.utils
+package com.fastlink.zekir_app.ui.utils
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -22,6 +22,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.fastlink.zekir_app.appData.model.ZekirCategoryModel
 import com.fastlink.zekir_app.navigation.Screen
@@ -31,7 +32,7 @@ fun ZekirCategoryCard(
     zekirCategory: ZekirCategoryModel,
     navController: NavController,
     onFavoriteIconClicked: () -> Unit
-    ) {
+) {
     Surface(
         modifier = Modifier
             .heightIn(min = 70.dp, max = 150.dp)
@@ -57,11 +58,14 @@ fun ZekirCategoryCard(
                     .padding(start = 20.dp)
                     .size(25.dp)
                     .clickable {
-                      onFavoriteIconClicked()
+                        onFavoriteIconClicked()
                     })
             Text(
                 text = zekirCategory.zekirCategoryTitle,
-                style = MaterialTheme.typography.titleMedium.copy(fontWeight = FontWeight.W400),
+                style = MaterialTheme.typography.titleMedium.copy(
+                    fontWeight = FontWeight.W400,
+                    fontSize = 18.sp
+                ),
                 color = MaterialTheme.colorScheme.primary,
                 modifier = Modifier
                     .padding(horizontal = 10.dp)

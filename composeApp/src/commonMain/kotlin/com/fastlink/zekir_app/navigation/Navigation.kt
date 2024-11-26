@@ -4,9 +4,9 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import com.fastlink.zekrapp.ui.favoriteScreen.FavoriteScreen
-import com.fastlink.zekrapp.ui.homeScreen.HomeScreen
-import com.fastlink.zekrapp.ui.zekirScreen.ZekirScreen
+import com.fastlink.zekir_app.ui.favoriteScreen.FavoriteScreen
+import com.fastlink.zekir_app.ui.homeScreen.HomeScreen
+import com.fastlink.zekir_app.ui.zekirScreen.ZekirScreen
 
 @Composable
 fun Navigation(

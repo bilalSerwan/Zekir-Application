@@ -34,7 +34,7 @@ kotlin {
             implementation(libs.androidx.activity.compose)
         }
         commonMain.dependencies {
-            implementation(compose.runtime)
+            implementation(libs.runtime)
             implementation(compose.foundation)
             implementation(compose.material)
             implementation(compose.material3)

@@ -1,4 +1,4 @@
-package com.fastlink.zekrapp.ui.zekirScreen.utils
+package com.fastlink.zekir_app.ui.zekirScreen.utils
 
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable

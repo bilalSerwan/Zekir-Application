@@ -1,4 +1,4 @@
-package com.fastlink.zekrapp.ui.zekirScreen.utils
+package com.fastlink.zekir_app.ui.zekirScreen.utils
 
 import androidx.compose.foundation.Canvas
 import androidx.compose.runtime.Composable
