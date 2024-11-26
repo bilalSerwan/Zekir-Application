@@ -15,7 +15,7 @@ kotlin {
             jvmTarget.set(JvmTarget.JVM_11)
         }
     }
-    
+
     listOf(
         iosX64(),
         iosArm64(),
@@ -26,9 +26,9 @@ kotlin {
             isStatic = true
         }
     }
-    
+
     sourceSets {
-        
+
         androidMain.dependencies {
             implementation(compose.preview)
             implementation(libs.androidx.activity.compose)
@@ -37,6 +37,7 @@ kotlin {
             implementation(compose.runtime)
             implementation(compose.foundation)
             implementation(compose.material)
+            implementation(compose.material3)
             implementation(compose.ui)
             implementation(compose.components.resources)
             implementation(compose.components.uiToolingPreview)
@@ -44,11 +45,11 @@ kotlin {
             implementation(libs.androidx.lifecycle.runtime.compose)
 
             //KOIN
-            implementation("io.insert-koin:koin-androidx-compose:4.0.0")
-            implementation("io.insert-koin:koin-compose-viewmodel:4.0.0")
+            implementation(libs.koin.androidx.compose)
+            implementation(libs.koin.compose.viewmodel)
 
             //Navigation
-            implementation("org.jetbrains.androidx.navigation:navigation-compose:2.8.0-alpha10")
+            implementation(libs.navigation.compose)
         }
     }
 }
