@@ -45,7 +45,7 @@ kotlin {
             implementation(libs.androidx.lifecycle.runtime.compose)
 
             //KOIN
-            implementation(libs.koin.androidx.compose)
+            implementation("io.insert-koin:koin-compose:4.0.0")
             implementation(libs.koin.compose.viewmodel)
 
             //Navigation
@@ -55,11 +55,11 @@ kotlin {
 }
 
 android {
-    namespace = "com.fastlink.zekir_app"
+    namespace = "com.fastlink.zekirapp"
     compileSdk = libs.versions.android.compileSdk.get().toInt()
 
     defaultConfig {
-        applicationId = "com.fastlink.zekir_app"
+        applicationId = "com.fastlink.zekirapp"
         minSdk = libs.versions.android.minSdk.get().toInt()
         targetSdk = libs.versions.android.targetSdk.get().toInt()
         versionCode = 1
