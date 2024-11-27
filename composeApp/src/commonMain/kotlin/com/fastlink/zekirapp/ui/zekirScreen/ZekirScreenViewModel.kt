@@ -1,17 +1,15 @@
-package com.fastlink.zekir_app.ui.zekirScreen
+package com.fastlink.zekirapp.ui.zekirScreen
 
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
-import com.fastlink.zekir_app.appData.model.ZekirCategoryModel
-import com.fastlink.zekir_app.appData.model.ZekirModel
-import com.fastlink.zekir_app.di.ZekirCategorySingleton
-import com.fastlink.zekir_app.di.ZekirSingleton
+import com.fastlink.zekirapp.appData.model.ZekirCategoryModel
+import com.fastlink.zekirapp.appData.model.ZekirModel
+import com.fastlink.zekirapp.di.ZekirCategorySingleton
+import com.fastlink.zekirapp.di.ZekirSingleton
 import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
 
 class ZekirScreenViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
     val zekirCounter = mutableIntStateOf(0)
@@ -62,9 +60,7 @@ class ZekirScreenViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
         if (zekirCounter.intValue < zekirs[zekirNumber].numericCounter) {
             zekirCounter.intValue++
             zekirs[zekirNumber].counter++
-            viewModelScope.launch {
-                delay(500)
-            }.join()
+            delay(500)
         }
     }
 
