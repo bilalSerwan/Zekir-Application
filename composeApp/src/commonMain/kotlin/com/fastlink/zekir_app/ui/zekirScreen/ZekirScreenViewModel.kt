@@ -63,7 +63,7 @@ class ZekirScreenViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
             zekirCounter.intValue++
             zekirs[zekirNumber].counter++
             viewModelScope.launch {
-                delay(1000)
+                delay(500)
             }.join()
         }
     }

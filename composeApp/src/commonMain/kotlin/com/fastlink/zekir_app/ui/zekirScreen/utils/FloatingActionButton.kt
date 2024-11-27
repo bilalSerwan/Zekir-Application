@@ -17,6 +17,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.fastlink.zekir_app.ui.zekirScreen.ZekirScreenViewModel
 import kotlinx.coroutines.launch
 
@@ -29,7 +30,7 @@ fun CustomFloatingActionButton(
     val animatedBorder by animateFloatAsState(
         targetValue = (viewModel.zekirCounter.intValue.toFloat() / viewModel.zekirs[pagerState.currentPage].numericCounter.toFloat()) * 360f,
         label = "",
-        animationSpec = tween(1000)
+        animationSpec = tween(500)
     )
     Box(
         modifier = Modifier
@@ -58,7 +59,7 @@ fun CustomFloatingActionButton(
         ) {
             Text(
                 text = viewModel.zekirCounter.intValue.toString(),
-                style = MaterialTheme.typography.titleLarge,
+                style = MaterialTheme.typography.titleLarge.copy(fontSize = 24.sp),
                 color = MaterialTheme.colorScheme.onPrimaryContainer
             )
         }

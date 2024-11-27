@@ -21,6 +21,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.fastlink.zekir_app.ui.zekirScreen.ZekirScreenViewModel
 import kotlinx.coroutines.launch
 import org.jetbrains.compose.resources.stringResource
@@ -30,7 +31,6 @@ import zekirapp.composeapp.generated.resources.readOnceInArabic
 @Composable
 fun ZekirCard(pagerState: PagerState, viewModel: ZekirScreenViewModel) {
     val coroutineScope = rememberCoroutineScope()
-
     Column(
         horizontalAlignment = Alignment.End,
         modifier = Modifier
@@ -68,7 +68,9 @@ fun ZekirCard(pagerState: PagerState, viewModel: ZekirScreenViewModel) {
             modifier = Modifier.fillMaxWidth(),
             textAlign = TextAlign.End,
             color = MaterialTheme.colorScheme.onSurface,
-            style = MaterialTheme.typography.titleMedium,
+            style = MaterialTheme.typography.titleMedium.copy(
+                fontSize = 20.sp
+            ),
         )
         Text(
             text = "\n(${
@@ -77,7 +79,9 @@ fun ZekirCard(pagerState: PagerState, viewModel: ZekirScreenViewModel) {
             modifier = Modifier.fillMaxWidth(),
             textAlign = TextAlign.End,
             color = MaterialTheme.colorScheme.onPrimaryContainer,
-            style = MaterialTheme.typography.bodyMedium
+            style = MaterialTheme.typography.bodyMedium.copy(
+                fontSize = 16.sp,
+            )
         )
         DashedDivider(
             thickness = 1.1.dp,
